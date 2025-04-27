@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos de Mestrado - Mayara Barbosa</title>
+    <style>
+        /* Reset de margens e padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #F2F4F6; /* Fundo mais suave */
+            color: #333333; /* Cor de texto mais escura */
+            line-height: 1.8; /* Espaçamento entre linhas aumentado */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header.top-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #4BB88E;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 10px 0; /* Redução do padding no topo/baixo */
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        header.top-menu nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        header.top-menu nav ul li {
+            margin: 0 10px;
+        }
+
+        header.top-menu nav ul li a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+
+        header.top-menu nav ul li a:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1000px;
+            padding: 20px;
+            margin-top: 80px; /* Redução do espaçamento do topo */
+            background-color: #FFFFFF; /* Fundo do conteúdo */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: justify; /* Alinhar texto justificado */
+            margin-bottom: 80px; /* Espaçamento entre o conteúdo e o rodapé */
+        }
+
+        .title-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px; /* Redução do espaçamento abaixo do título */
+        }
+
+        .profile-pic {
+            width: 50px; /* Redução do tamanho do círculo */
+            height: 50px; /* Redução do tamanho do círculo */
+            border-radius: 50%;
+            background-color: #BDC3C7;
+            margin-bottom: 10px; /* Espaçamento abaixo da imagem */
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author {
+            font-size: 12px; /* Redução do tamanho do texto */
+            color: #333333; /* Cor de texto mais escura */
+            text-transform: uppercase;
+            margin-bottom: 5px; /* Redução do espaçamento inferior */
+            text-align: center; /* Centralizar o texto */
+        }
+
+        .title {
+            font-size: 22px; /* Redução do tamanho do título */
+            color: #2C3E50;
+            margin-bottom: 5px; /* Redução do espaçamento abaixo do título */
+            text-align: center; /* Centralizar o texto */
+        }
+
+        .synopsis {
+            font-size: 16px; /* Redução do tamanho da sinopse */
+            color: #666666; /* Cor de texto mais suave */
+            margin-bottom: 15px; /* Redução do espaçamento abaixo da sinopse */
+            text-align: center; /* Centralizar o texto */
+        }
+
+        .content {
+            font-size: 17px;
+            color: #333333; /* Cor de texto mais escura */
+            margin-bottom: 30px;
+        }
+
+        .image-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 75%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px; /* Arredondar as bordas da imagem */
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: #666666; /* Cor de texto mais suave */
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .button-container {
+            text-align: center; /* Centralizar os botões */
+            margin-top: 20px;
+        }
+
+        .new-title {
+            font-size: 18px; /* Tamanho do título reduzido */
+            color: #2C3E50;
+            margin-top: 30px;
+            text-align: justify; /* Manter alinhamento justificado */
+        }
+
+        .button {
+            padding: 12px 24px; /* Aumento do padding */
+            border-radius: 30px;
+            border: 2px solid #00B4BF;
+            color: #00B4BF;
+            background-color: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+            font-size: 16px; /* Aumento do tamanho da fonte dos botões */
+        }
+
+        .button:hover {
+            background-color: #2C3E50;
+            color: #FFFFFF;
+        }
+
+        .text-container {
+            margin-top: 18px;
+            text-align: justify; /* Alinhar texto justificado */
+        }
+
+        .text {
+            display: none;
+            padding: 10px;
+            border: 2px solid #2C3E50;
+            border-radius: 5px;
+            background-color: #F2F3F4;
+            color: #333333; /* Cor de texto mais escura */
+        }
+
+        .citation {
+            font-size: 14px;
+            color: #666666; /* Cor de texto mais suave */
+            margin-top: 10px;
+            text-align: justify;
+            margin-bottom: 10px; /* Espaçamento abaixo da citação */
+        }
+
+        footer {
+            width: 100%;
+            background-color: #4BB88E;
+            color: #ECF0F1;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 12px;
+            position: fixed;
+            bottom: 0;
+        }
+
+        /* Media Query para telas menores */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .profile-pic {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+            }
+
+            .title {
+                font-size: 20px; /* Ajuste para telas menores */
+            }
+
+            .author {
+                font-size: 12px; /* Tamanho ajustado */
+            }
+
+            .synopsis {
+                font-size: 14px; /* Tamanho ajustado */
+            }
+
+            .content {
+                font-size: 16px; /* Tamanho ajustado */
+            }
+
+            .image-caption {
+                font-size: 10px;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 14px; /* Tamanho ajustado */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="top-menu">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="leituras.html">Leituras</a></li>
+                <li><a href="diagnose.html">Diagnose</a></li>
+                <li><a href="sequencia.html">Produto educacional</a></li>
+                <li><a href="dissertacao.html">Dissertação</a></li> <!-- Nova aba Dissertação -->
+            </ul>
+        </nav>
+    </header>    
+    <div class="container">
+        <div class="title-container">
+            <div class="profile-pic">
+                <img src="Galeria/perfil.png" class="gallery-item">
+            </div>
+            <div class="author">Mayara Barbosa</div>
+            <h1 class="title">Marés que me habitam: práticas educacionais territorialmente referenciadas em uma escola localizada no Conjunto de Favelas da Maré</h1>
+            <div class="synopsis"></div>
+        </div>
+        <div class="image-container">
+            <img src="Galeria/Mare-5.jpg" alt="Imagem da Maré">
+            <div class="image-caption">Fonte: <a href="https://jornalocidadao.net/mare/" target="_blank">https://jornalocidadao.net/mare/</a></div>
+        </div>
+        <div class="content">
+            <p>Neste site, teremos uma sequência de atividades, com o objetivo de colocar em prática ações voltadas para o reconhecimento identitário dos (as) alunos (as), moradores das localidades do entorno da escola e territorializar o currículo escolar. A escola em questão faz parte do Complexo de Favelas da Maré. Os territórios fronteiriços são compostos pelo  Parque União, Parque Roquete Pinto e Piscinão de Ramos. A partir das divergências ocorridas entre os (as) alunos (as) da escola, sobre o pertencimento de determinados contextos ao território Mareense, surge a ideia de trabalhar o território através do currículo escolar, construindo caminhos outros para uma educação emancipatória e significativa.</p>
+        </div>
+        <div class="button-container">
+            <div class="new-title">Produto educacional: possibilidade de intervenção por uma educação territorializada numa escola pública da Maré.</div>
+            <button class="button" onclick="showText('problema')">PROBLEMA DE PESQUISA</button>
+            <button class="button" onclick="showText('justificativa')">JUSTIFICATIVA</button>
+            <button class="button" onclick="showText('objetivo')">OBJETIVO GERAL</button>
+        </div>
+        <div class="text-container">
+            <div id="problema" class="text">
+                <p>Quais situações corroboram para a invisibilidade de pertencimento à Maré em algumas localidades?</p>
+                <p>Quais são as visões de território que a comunidade escolar discorre?</p>
+            </div>
+            <div id="justificativa" class="text">
+                <p>A presente pesquisa surge como uma inquietude provocada a partir do fazer e viver docente, numa escola pública do município do Rio de Janeiro, localizada no Conjunto de Favelas da Maré. Ao dialogar com a comunidade escolar, percebi que quando se falava nos territórios do entorno, o pertencimento à Maré se aplicava apenas para determinados contextos, ou seja, apenas alguns desses territórios fronteiriços à escola eram sinalizados como pertencentes à Maré, aqueles com os quais apresentavam contextos conflagrados pela violência, pelo medo. O sentimento de não pertencimento dos sujeitos adentra os muros escolares, gerando uma série de visões que renegam o pertencer à Maré de determinados territórios fronteiriços.</p>
+            </div>
+            <div id="objetivo" class="text">
+                <p>Promover o reconhecimento identitário e territorial a que pertencem, através de práticas pedagógicas territorializadas e significativas em uma escola da rede municipal do Rio de Janeiro, localizada no Complexo de Favelas da Maré, impulsionando o entrelaçar de vivências e desestruturando as "fronteiras invisíveis" criadas pelo inconsciente social.</p>
+            </div>
+        </div>
+        
+        <!-- Novo título -->
+        <div class="new-title">
+            O que é o Complexo de Favelas da Maré?
+            <p class="citation">
+                "Os territórios periféricos são espaços onde se desenvolvem relações sociais diferentes das capitalistas hegemônicas, aqueles lugares onde os coletivos podem praticar modos de vida diferenciados." 
+                (ZIBECHI, 2015, p. 2015)
+            </p>
+            <div class="content">
+                <p>O Complexo de Favelas da Maré, é também intitulado como Bairro Maré, desde 19 de janeiro de 1994, a partir da Lei Municipal 2.119. A Maré possui 16 favelas, com aproximadamente 140 mil habitantes, segundo o censo Populacional da Maré, realizado em 2019. O bairro é considerado o nono bairro mais populoso da cidade do Rio de Janeiro. A população mareense tem a sua maioria autodeclarada preta ou parda. Além disso, a população conta com um grande contingente de nordestinos, principalmente oriundos da Paraíba. Outro dado que chama atenção é com relação à faixa etária dos seus moradores, cuja maioria são de crianças e jovens.</p>
+                <p><small>Fonte: <a href="https://www.redesdamare.org.br/br/artigo/171/uma-cidade-chamada-mare-censo-populacional-2019#:~:text=Com%20140%20mil%20habitantes%2C%20Mar%C3%A9,uma%20cidade%20de%20m%C3%A9dio%20porte." target="_blank">Redes da Maré</a></small></p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Mayara Barbosa. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        function showText(id) {
+            var textToShow = document.getElementById(id);
+            var texts = document.querySelectorAll('.text');
+
+            texts.forEach(function(text) {
+                text.style.display = 'none';
+            });
+
+            textToShow.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

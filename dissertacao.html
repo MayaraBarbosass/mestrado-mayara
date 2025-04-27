@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos de Mestrado - Mayara Barbosa</title>
+    <style>
+        /* Reset de margens e padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #F2F4F6;
+            color: #333333;
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        header.top-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #4BB88E;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header.top-menu nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        header.top-menu nav ul li {
+            margin: 0 10px;
+        }
+
+        header.top-menu nav ul li a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+
+        header.top-menu nav ul li a:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            width: 1000px;
+            /* Definindo um tamanho fixo */
+            padding: 20px;
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 80px;
+            text-align: justify;
+        }
+
+        .content {
+            font-size: 16px;
+        }
+
+        .button {
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: none;
+            background-color: #00B4BF;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #008A91;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #4BB88E;
+            color: #ECF0F1;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 12px;
+            position: fixed;
+            bottom: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .content {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-menu">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="leituras.html">Leituras</a></li>
+                <li><a href="diagnose.html">Diagnose</a></li>
+                <li><a href="sequencia.html">Produto educacional</a></li>
+                <li><a href="dissertacao.html">Dissertação</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <p>Essa dissertação foi desenvolvida como uma pesquisa qualitativa e interpretativista crítica, cujo
+                objetivo era entender o fenômeno das “fronteiras invisíveis” entre três territórios da Maré,
+                fronteiriços à escola pesquisada em questão, que ocorria no imaginário dos alunos e se estendia para a
+                comunidade escolar como um todo.</p>
+
+            <p>Pensando em desconstruir tais visões sobre o território Mareense, foram realizadas práticas pedagógicas
+                territorializadas que culminaram no desenvolvimento do produto educacional: o Mapeamento Educativo. O
+                produto foi um meio, pelo qual, os alunos puderam entender e participar da formação de seus territórios,
+                a partir de uma visão afetiva e subjetiva de suas vivências territoriais.</p>
+
+            <p>Sendo assim, de modo positivo e obtendo um retorno pautado dentro daquilo que fora desejado, a pesquisa
+                trouxe bons resultados e ultrapassou os estereótipos presentes nas falas cotidianas que os alunos
+                apresentavam em sala de aula. Além disso, promoveu a participação dos demais alunos da escola, com a
+                exposição de trabalhos pelos corredores da escola e compartilhamento de experiências com os demais
+                docentes que articulavam sobre o que foi desenvolvido.</p>
+
+            <p>A pesquisa não se fecha no produto educacional, ela é potente assim como a Maré e necessita ser contínua,
+                para que este território faça parte cotidianamente do processo educacional dos seus sujeitos.</p>
+        </div>
+
+        <div class="download-buttons">
+            <a href="Galeria/Dissertação - Mayara Barbosa.pdf" class="button" target="_blank">
+                Ler completo
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Mayara Barbosa. Todos os direitos reservados.
+    </footer>
+</body>
+
+</html>
