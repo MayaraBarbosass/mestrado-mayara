@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estudos de Mestrado - Mayara Barbosa</title>
     <style>
-        /* Reset de margens e padding */
         * {
             margin: 0;
             padding: 0;
@@ -25,17 +24,15 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            padding-top: 80px;
-            /* Para evitar que o conteúdo fique oculto sob o menu fixo */
         }
 
         header.top-menu {
-            position: fixed;
+            position: relative;
             top: 0;
             left: 0;
             width: 100%;
             background-color: #4BB88E;
-            color: #ECF0F1;
+            color: #FFFFFF;
             text-align: center;
             padding: 10px 0;
             /* Redução do padding no topo/baixo */
@@ -52,8 +49,12 @@
         }
 
         header.top-menu nav ul li {
-            margin: 0 10px;
+            display: inline-block;
+            margin: 0 20px;
+            white-space: nowrap;
+            /* NÃO deixa quebrar a linha */
         }
+
 
         header.top-menu nav ul li a {
             text-decoration: none;
@@ -67,58 +68,60 @@
         }
 
         .container {
-            width: 1000px;
-            /* Definindo um tamanho fixo */
+            width: 95%;
+            max-width: 1000px;
             padding: 20px;
+            margin-top: 80px;
+            /* Redução do espaçamento do topo */
             background-color: #FFFFFF;
+            /* Fundo do conteúdo */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 80px;
             text-align: justify;
+            /* Alinhar texto justificado */
+            margin-bottom: 80px;
+            /* Espaçamento entre o conteúdo e o rodapé */
         }
 
-
+        /* Título do conteúdo */
         .new-title {
             font-size: 20px;
             color: #2C3E50;
             margin-top: 30px;
-            margin-left: 20px;
             padding: 0 20px;
-            text-align: justify;
+            text-align: left;
             margin-bottom: 20px;
-            /* Adiciona um espaço abaixo do título */
+            width: 100%;
+            max-width: 1000px;
         }
+
 
         .content {
             font-size: 16px;
             color: #333333;
-            margin-top: 15px;
-            margin-left: 20px;
-            /* Alinhamento à esquerda */
-            margin-right: 20px;
-            /* Adicionando margem à direita */
-            padding: 0 20px;
-            /* Mesma margem lateral */
+            margin-bottom: 30px;
             text-align: justify;
+            padding: 0 20px;
         }
-
 
         .form-container {
             text-align: center;
             margin-top: 20px;
+            width: 100%;
         }
 
         .form-iframe {
             border: none;
             width: 100%;
-            max-width: 800px;
             height: 600px;
+            max-width: 800px;
         }
 
         .form-link {
             font-size: 16px;
             color: #2C3E50;
-            margin-top: 10px;
-            display: block;
+            margin-top: 20px;
+            text-align: center;
+            padding: 0 20px;
         }
 
         .form-link a {
@@ -138,33 +141,39 @@
             text-align: center;
             padding: 15px 0;
             font-size: 12px;
-            position: fixed;
-            bottom: 0;
+            margin-top: auto;
         }
 
-        /* Media Query para telas menores */
         @media screen and (max-width: 768px) {
+            header.top-menu nav ul {
+                flex-direction: column;
+            }
+
+            header.top-menu nav ul li {
+                margin: 8px 0;
+            }
+
             .container {
                 padding: 15px;
+                margin-top: 60px;
             }
 
             .new-title {
-                font-size: 20px;
-                /* Ajuste para telas menores */
-                padding-left: 15px;
-                /* Ajuste para telas menores */
+                font-size: 18px;
+                padding: 0 15px;
             }
 
             .content {
                 font-size: 16px;
-                /* Tamanho ajustado */
-                padding-left: 15px;
-                /* Ajuste para telas menores */
+                padding: 0 15px;
+            }
+
+            .form-iframe {
+                height: 500px;
             }
 
             .form-link {
                 font-size: 14px;
-                /* Tamanho ajustado */
             }
         }
     </style>
@@ -178,27 +187,27 @@
                 <li><a href="leituras.html">Leituras</a></li>
                 <li><a href="diagnose.html">Diagnose</a></li>
                 <li><a href="sequencia.html">Produto educacional</a></li>
-                <li><a href="dissertacao.html">Dissertação</a></li> <!-- Nova aba Dissertação -->
+                <li><a href="dissertacao.html">Dissertação</a></li>
             </ul>
         </nav>
     </header>
+
     <div class="container">
         <div class="new-title">
             Marés: identidade e território
         </div>
+
         <div class="content">
             <p>Este formulário será uma ferramenta pedagógica que auxiliará no trabalho inicial da pesquisa, coletando
                 informações pertinentes para os próximos passos.</p>
         </div>
 
-        <!-- Formulário incorporado via iframe -->
         <div class="form-container">
             <iframe class="form-iframe"
                 src="https://docs.google.com/forms/d/e/1FAIpQLSfYFW5RF-ymsxcyRX4oaKQ48MTKmFK1MDhvLs0Ck-jFJKFtvg/viewform?embedded=true"
                 frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
         </div>
 
-        <!-- Link clicável para abrir o formulário em nova aba -->
         <div class="form-link">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYFW5RF-ymsxcyRX4oaKQ48MTKmFK1MDhvLs0Ck-jFJKFtvg/viewform?usp=send_form"
                 target="_blank">Clique aqui para acessar o formulário</a>
