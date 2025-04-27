@@ -22,11 +22,8 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-color: #F2F4F6;
-            /* Fundo mais suave */
             color: #333333;
-            /* Cor de texto mais escura */
             line-height: 1.8;
-            /* Espaçamento entre linhas aumentado */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -35,29 +32,30 @@
         }
 
         header.top-menu {
-            position: fixed;
+            position: relative;
             top: 0;
             left: 0;
             width: 100%;
             background-color: #4BB88E;
-            color: #ECF0F1;
+            color: #FFFFFF;
             text-align: center;
             padding: 10px 0;
-            /* Redução do padding no topo/baixo */
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
         }
 
         header.top-menu nav ul {
-            list-style-type: none;
-            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
             padding: 0;
         }
 
         header.top-menu nav ul li {
-            display: inline;
-            margin: 0 10px;
+            display: inline-block;
+            margin: 0 20px;
+            white-space: nowrap;
         }
 
         header.top-menu nav ul li a {
@@ -71,56 +69,42 @@
             opacity: 0.7;
         }
 
+
         .container {
             width: 100%;
-            /* Ajuste para garantir que o conteúdo ocupe 100% da largura */
             max-width: 1000px;
             padding: 20px;
             margin-top: 80px;
-            /* Redução do espaçamento do topo */
             background-color: #FFFFFF;
-            /* Fundo do conteúdo */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: relative;
             margin-bottom: 80px;
-            /* Espaçamento entre o conteúdo e o rodapé */
             text-align: justify;
-            /* Alinhar texto justificado */
         }
 
         .new-title {
             font-size: 20px;
             color: #2C3E50;
             margin-top: 30px;
-            padding-left: 20px;
-            /* Alinha o título com a galeria */
-            padding-right: 20px;
-            /* Adiciona padding à direita, igual à galeria */
+            padding: 0 20px;
             text-align: left;
-            /* Alinha o texto à esquerda */
             margin-bottom: 20px;
-            /* Espaço abaixo do título */
             width: 100%;
             max-width: 1000px;
-            /* Limita a largura máxima */
         }
 
         .gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            /* 3 itens por linha */
             gap: 20px;
             max-width: 1000px;
-            /* Limita a largura da galeria */
             margin-top: 30px;
-            padding-left: 20px;
-            /* Alinha a galeria com o título */
-            padding-right: 20px;
-            /* Adiciona padding à direita, igual ao título */
+            padding: 0 20px;
         }
 
         .gallery-item {
             height: 450px;
+            /* sempre 450px em todas as telas */
             width: 100%;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             overflow: hidden;
@@ -130,6 +114,7 @@
             justify-content: center;
             position: relative;
         }
+
 
         .gallery-item img {
             width: 100%;
@@ -152,7 +137,6 @@
             opacity: 0;
             transition: opacity 0.3s ease;
             text-align: center;
-            overflow: hidden;
         }
 
         .overlay p {
@@ -179,22 +163,51 @@
             text-align: center;
             padding: 15px 0;
             font-size: 12px;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            margin-top: auto;
         }
 
-    @media screen and (max-width: 768px) {
-        .container {
-            padding: 15px;
+        /* RESPONSIVIDADE */
+        @media screen and (max-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        .gallery {
-            grid-template-columns: repeat(2, 1fr);
-            /* 2 itens por linha em telas menores */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin-top: 70px;
+            }
+
+            .new-title {
+                font-size: 18px;
+                padding: 0 15px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+            }
+
+                header.top-menu nav ul {
+                    flex-direction: column;
+                }
+
+                header.top-menu nav ul li {
+                    margin: 10px 0;
+                }
+            }
+
+        @media screen and (max-width: 480px) {
+            .overlay p {
+                font-size: 13px;
+                padding: 5px;
+            }
+
+            footer {
+                font-size: 11px;
+            }
         }
-    } 
     </style>
 </head>
 
@@ -206,7 +219,7 @@
                 <li><a href="leituras.html">Leituras</a></li>
                 <li><a href="diagnose.html">Diagnose</a></li>
                 <li><a href="sequencia.html">Produto educacional</a></li>
-                <li><a href="dissertacao.html">Dissertação</a></li> <!-- Nova aba Dissertação -->
+                <li><a href="dissertacao.html">Dissertação</a></li> 
             </ul>
         </nav>
     </header>
