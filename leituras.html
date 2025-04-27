@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos de Mestrado - Mayara Barbosa</title>
+    <style>
+        /* Reset de margens e padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #F2F4F6;
+            /* Fundo mais suave */
+            color: #333333;
+            /* Cor de texto mais escura */
+            line-height: 1.8;
+            /* Espaçamento entre linhas aumentado */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        header.top-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #4BB88E;
+            color: #ECF0F1;
+            text-align: center;
+            padding: 10px 0;
+            /* Redução do padding no topo/baixo */
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        header.top-menu nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        header.top-menu nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        header.top-menu nav ul li a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+
+        header.top-menu nav ul li a:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            width: 100%;
+            /* Ajuste para garantir que o conteúdo ocupe 100% da largura */
+            max-width: 1000px;
+            padding: 20px;
+            margin-top: 80px;
+            /* Redução do espaçamento do topo */
+            background-color: #FFFFFF;
+            /* Fundo do conteúdo */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin-bottom: 80px;
+            /* Espaçamento entre o conteúdo e o rodapé */
+            text-align: justify;
+            /* Alinhar texto justificado */
+        }
+
+        .new-title {
+            font-size: 20px;
+            color: #2C3E50;
+            margin-top: 30px;
+            padding-left: 20px;
+            /* Alinha o título com a galeria */
+            padding-right: 20px;
+            /* Adiciona padding à direita, igual à galeria */
+            text-align: left;
+            /* Alinha o texto à esquerda */
+            margin-bottom: 20px;
+            /* Espaço abaixo do título */
+            width: 100%;
+            max-width: 1000px;
+            /* Limita a largura máxima */
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* 3 itens por linha */
+            gap: 20px;
+            max-width: 1000px;
+            /* Limita a largura da galeria */
+            margin-top: 30px;
+            padding-left: 20px;
+            /* Alinha a galeria com o título */
+            padding-right: 20px;
+            /* Adiciona padding à direita, igual ao título */
+        }
+
+        .gallery-item {
+            height: 450px;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background-color: #CCCCCC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .overlay p {
+            font-size: 14px;
+            color: #333333;
+            max-width: 400px;
+            word-wrap: break-word;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            overflow-y: auto;
+            max-height: 80%;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #4BB88E;
+            color: #ECF0F1;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 12px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 itens por linha em telas menores */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-menu">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="leituras.html">Leituras</a></li>
+                <li><a href="diagnose.html">Diagnose</a></li>
+                <li><a href="sequencia.html">Produto educacional</a></li>
+                <li><a href="dissertacao.html">Dissertação</a></li> <!-- Nova aba Dissertação -->
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="new-title">
+            Leitura para produção da pesquisa
+        </div>
+
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="Galeria/favela.jpg" alt="Favela">
+                <div class="overlay">
+                    <p>Este livro traz à tona, num momento mais do que oportuno, uma questão tão antiga quanto o
+                        preconceito: quando o assunto é moradia, a favela é problema ou solução? A pergunta mascara
+                        outra dúvida imanente; o que é a favela, afinal? Tais questões (nosmorros cariocas do século XIX
+                        os barracões já não eram raros, lembram os autores) ganham aqui um olhar atento e apurado. Olhar
+                        de dentro, de quem já viveu na pele as dificuldades - e alegrias - de uma favela.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Galeria/amiseria.jpg" alt="A Miséria">
+                <div class="overlay">
+                    <p>O livro "A miséria do mundo", escrito por Pierre Bourdieu, irá abordar as dimensões da
+                        desigualdade, poder e cultura. Ele nos traz uma reflexão sobre a pobreza, destacando que não
+                        ocorre apenas pela falta de recursos, mas pela falta de oportunidades e reconhecimento social.
+                    </p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Galeria/acidadecomosaladeaula.jpg" alt="A Cidade Como Sala de Aula">
+                <div class="overlay">
+                    <p>A presente coletânea procura fomentar um debate que consideramos fundamental, o estabelecimento
+                        da Educação Integral por meio da conexão entre as instituições escolares e os territórios que
+                        compõem seu entorno. É com base nesta perspectiva, apoiada no estabelecimento de uma educação
+                        territorialmente referenciada, a céu aberto e fora dos muros escolares, que a coletânea foi
+                        construída. Seu objetivo reside em apresentar, por intermédio de diferentes considerações
+                        analíticas, a cidade como sala de aula, como território educativo e como instância
+                        corresponsável pela Educação dos sujeitos. Desta forma, esperamos contribuir para que a
+                        construção de uma Educação Integral seja percebida como um processo amplo, que não deve ser
+                        restrito a ampliação do tempo de permanência dos estudantes no interior das escolas.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Galeria/sociedadedesigual.jpg" alt="Sociedade Desigual">
+                <div class="overlay">
+                    <p>O livro "A sociedade desigual: racismo e branquitude na formação do Brasil", autoria de Mário
+                        Theodoro, conta como a desigualdade se desdobrará no contexto brasileiro. A desigualdade será
+                        dialogada com diversas óticas, contudo, em todas elas o racismo terá seu papel determinante.
+                        "Violenta, autoritária, elitista e medíocre. Essa é a sociedade desigual." (THEODORO, 2023).</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Galeria/espiritodasperiferias.jpg" alt="Espírito das Periferias">
+                <div class="overlay">
+                    <p>Segundo o autor, é preciso pensar e evocar um espírito das periferias que, inspirado no espírito
+                        das florestas, se estende em toda a parte e está nas partilhas cotidianas. No território das
+                        periferias estão as palavras e a gramática dos primeiros seres humanos que habitaram, lutaram e
+                        defenderam as diferentes formas de viver e existir. O espírito das periferias alarga as
+                        subjetividades no silêncio das operações simbólicas materializadas na partilha cotidiana do
+                        pouco que se tem (...). O espírito das periferias foi moldado pelo espírito das florestas.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Galeria/marevida.jpg" alt="Maré Vida">
+                <div class="overlay">
+                    <p>O livro "Maré vida na favela", escrito em conjunto por Drauzio Varella, Ivaldo Bertazzo e Paola
+                        Berenstein Jacques, traz um panorama espacial e simbólico sobre o maior complexo de favelas do
+                        Rio de Janeiro, abordando questões como a passagem da infância para a adolescência, o convívio
+                        com o tráfico de armas e drogas, as transformações urbanísticas ocorridas nas comunidades e as
+                        expectativas de seus habitantes.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Galeria/multiculturalismo.jpg" alt="Multiculturalismo">
+                <div class="overlay">
+                    <p>O livro "Multiculturalismo: diferenças culturais e práticas pedagógicas" organizado por Antônio
+                        Flávio Moreira e Vera Maria Candau discuti como as diferenças se apresentam e relacionam no
+                        âmbito educacional, ou seja, na teoria, na prática e na política.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Galeria/necropolitica.jpg" alt="Necropolítica">
+                <div class="overlay">
+                    <p>Neste livro as formas contemporâneas que subjugam a vida ao poder da morte (necropolítica)
+                        reconfiguram profundamente as relações entre resistência, sacrifício e terror. O autor tentou
+                        demonstrar que a noção de biopoder é insuficiente para dar conta das formas contemporâneas de
+                        submissão da vida ao poder da morte.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Galeria/pedagogia.jpg" alt="Pedagogia">
+                <div class="overlay">
+                    <p>O livro "Pedagogia da Autonomia ", descrição de Paulo Freire, descreve de modo simples a defesa
+                        da existência digna. O educador aprofunda sua teoria-ética de uma vida voltada para a liberdade,
+                        a verdade, a autenticidade dos sujeitos, contra a lógica do capital.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Galeria/territorios educativos.jpeg" alt="Territórios Educativos">
+                <div class="overlay">
+                    <p>Nesta obra buscamos contribuir no estabelecimento da Educação Integral, desvelando, por meio de
+                        um conjunto de experiências, o potencial educativo presente no espaço das cidades. Neste
+                        primeiro volume, apresentamos dez experiências educativas em diferentes bairros da Cidade do Rio
+                        de Janeiro, a saber: Camorim, Jacarepaguá, Madureira, Favelas da Maré, Méier, Penha-Vila
+                        Cruzeiro, Favela da Rocinha, Santa Cruz, Santa Teresa e Rio Comprido. Em cada um de seus
+                        capítulos, os autores e as autoras, produziram uma rica cartografia educativa, mapeamento um
+                        conjunto de possibilidades formativas no espaço da cidade, condição que possibilita a concreção
+                        de uma Educação Integral, territorialmente referenciada e repleta de sentidos e significados.
+                        Por fim, mas não menos importante, esperamos que a presente Coletânea fomente um amplo processo
+                        de reimaginação das práticas escolares, permitindo que o potencial educativo presente nos
+                        territórios seja percebido, valorizado e, cotidianamente, integrado as práticas de
+                        ensino-aprendizagem. Esta é uma condição que consideramos como fundamental para a concreção da
+                        Educação Integral, de forma que a integralidade não se restrinja a escolarização, possibilitando
+                        a emancipação dos sujeitos e a participação ativa deles em suas comunidades.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Galeria/territoriossilenciados.jpg" alt="Territórios Silenciados">
+                <div class="overlay">
+                    <p>O livro "Territórios Silenciados", organizado por Diogo Nascimento e Lourenço Cezar, com diversos
+                        autores, abordará a vida nas periferias e favelas, de onde os mesmos também são oriundos,
+                        debatendo temas ligados à estes territórios. Nessa construção coletiva, a proposta do livro é
+                        mostrar a voz de quem vive as favelas e na Baixada Fluminense carioca.</p>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br>
+    </div>
+    <footer>
+        &copy; 2025 Mayara Barbosa. Todos os direitos reservados.
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos de Mestrado - Mayara Barbosa</title>
+    <style>
+        /* Reset de margens e padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #F2F4F6;
+            /* Fundo mais suave */
+            color: #333333;
+            /* Cor de texto mais escura */
+            line-height: 1.8;
+            /* Espaçamento entre linhas aumentado */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 80px;
+            /* Para evitar que o conteúdo fique oculto sob o menu fixo */
+        }
+
+        header.top-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #4BB88E;
+            color: #ECF0F1;
+            text-align: center;
+            padding: 10px 0;
+            /* Redução do padding no topo/baixo */
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        header.top-menu nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        header.top-menu nav ul li {
+            margin: 0 10px;
+        }
+
+        header.top-menu nav ul li a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+
+        header.top-menu nav ul li a:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            width: 1000px;
+            /* Definindo um tamanho fixo */
+            padding: 20px;
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 80px;
+            text-align: justify;
+        }
+
+
+        .new-title {
+            font-size: 20px;
+            color: #2C3E50;
+            margin-top: 30px;
+            margin-left: 20px;
+            padding: 0 20px;
+            text-align: justify;
+            margin-bottom: 20px;
+            /* Adiciona um espaço abaixo do título */
+        }
+
+        .content {
+            font-size: 16px;
+            color: #333333;
+            margin-top: 15px;
+            margin-left: 20px;
+            /* Alinhamento à esquerda */
+            margin-right: 20px;
+            /* Adicionando margem à direita */
+            padding: 0 20px;
+            /* Mesma margem lateral */
+            text-align: justify;
+        }
+
+
+        .form-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-iframe {
+            border: none;
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+        }
+
+        .form-link {
+            font-size: 16px;
+            color: #2C3E50;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .form-link a {
+            color: #2C3E50;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .form-link a:hover {
+            color: #2980B9;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #4BB88E;
+            color: #ECF0F1;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 12px;
+            position: fixed;
+            bottom: 0;
+        }
+
+        /* Media Query para telas menores */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .new-title {
+                font-size: 20px;
+                /* Ajuste para telas menores */
+                padding-left: 15px;
+                /* Ajuste para telas menores */
+            }
+
+            .content {
+                font-size: 16px;
+                /* Tamanho ajustado */
+                padding-left: 15px;
+                /* Ajuste para telas menores */
+            }
+
+            .form-link {
+                font-size: 14px;
+                /* Tamanho ajustado */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-menu">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="leituras.html">Leituras</a></li>
+                <li><a href="diagnose.html">Diagnose</a></li>
+                <li><a href="sequencia.html">Produto educacional</a></li>
+                <li><a href="dissertacao.html">Dissertação</a></li> <!-- Nova aba Dissertação -->
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="new-title">
+            Marés: identidade e território
+        </div>
+        <div class="content">
+            <p>Este formulário será uma ferramenta pedagógica que auxiliará no trabalho inicial da pesquisa, coletando
+                informações pertinentes para os próximos passos.</p>
+        </div>
+
+        <!-- Formulário incorporado via iframe -->
+        <div class="form-container">
+            <iframe class="form-iframe"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfYFW5RF-ymsxcyRX4oaKQ48MTKmFK1MDhvLs0Ck-jFJKFtvg/viewform?embedded=true"
+                frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+        </div>
+
+        <!-- Link clicável para abrir o formulário em nova aba -->
+        <div class="form-link">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYFW5RF-ymsxcyRX4oaKQ48MTKmFK1MDhvLs0Ck-jFJKFtvg/viewform?usp=send_form"
+                target="_blank">Clique aqui para acessar o formulário</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Mayara Barbosa. Todos os direitos reservados.
+    </footer>
+</body>
+
+</html>

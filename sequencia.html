@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos de Mestrado - Mayara Barbosa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #F2F4F6;
+            color: #333333;
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+
+        header.top-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #4BB88E;
+            /* Cor alterada */
+            color: #FFFFFF;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 1;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header.top-menu nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        header.top-menu nav ul li {
+            margin: 0 10px;
+        }
+
+        header.top-menu nav ul li a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+
+        header.top-menu nav ul li a:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            width: 1000px;
+            /* Definindo um tamanho fixo */
+            padding: 20px;
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+        }
+
+
+        .button {
+            padding: 12px 24px;
+            /* Aumento do padding */
+            border-radius: 30px;
+            border: 2px solid #00B4BF;
+            color: #00B4BF;
+            background-color: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+            font-size: 16px;
+            /* Aumento do tamanho da fonte dos botões */
+        }
+
+        .button:hover {
+            background-color: #2C3E50;
+            color: #FFFFFF;
+        }
+
+        .new-title {
+            font-size: 20px;
+            color: #2C3E50;
+            margin-top: 30px;
+            margin-left: 20px;
+            padding: 0 20px;
+            text-align: justify;
+            margin-bottom: 20px;
+            /* Adiciona um espaço abaixo do título */
+        }
+
+        .content {
+            font-size: 16px;
+            color: #333333;
+            margin-top: 15px;
+            margin-left: 20px;
+            padding: 0 20px;
+            text-align: justify;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4BB88E;
+            color: #FFFFFF;
+            padding: 10px;
+            text-align: center;
+            /* Centraliza o texto no cabeçalho */
+            font-size: 16px;
+        }
+
+
+        td {
+            padding: 10px;
+            background-color: #F9F9F9;
+            color: #333333;
+            line-height: 1.5;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #F0F0F0;
+        }
+
+        .gallery-container {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 40px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .gallery-title {
+            font-size: 18px;
+            color: #00B4BF;
+            /* Cor alterada */
+            margin-bottom: 20px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+
+        .video-section {
+            padding: 60px 20px;
+            background-color: #ffffff;
+        }
+
+        .video-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333333;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .video-item {
+            width: 80%;
+            max-width: 800px;
+            height: 400px;
+            /* NOVO: altura fixa */
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+
+        .video-item video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .video-title {
+                font-size: 2rem;
+            }
+
+            .video-item {
+                width: 100%;
+                height: 250px;
+                /* Ajusta para telas pequenas */
+            }
+        }
+
+        footer {
+            width: 100%;
+            background-color: #4BB88E;
+            /* Cor alterada */
+            color: #FFFFFF;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 12px;
+            position: fixed;
+            bottom: 0;
+        }
+
+        /* Ajustando larguras das colunas */
+        th:first-child {
+            width: 40%;
+        }
+
+        td:first-child {
+            width: 40%;
+        }
+
+        td:last-child {
+            width: 60%;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Fundo escuro */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Imagem dentro do modal */
+        .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+            margin: auto;
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-menu">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="leituras.html">Leituras</a></li>
+                <li><a href="diagnose.html">Diagnose</a></li>
+                <li><a href="sequencia.html">Produto educacional</a></li>
+                <li><a href="dissertacao.html">Dissertação</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="new-title">
+            Produto educacional: Mapeamento Educativo
+        </div>
+
+        <table style="margin: auto;">
+            <thead>
+                <tr>
+                    <th>Etapas</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Passo 1:</td>
+                    <td style="text-align: justify;">Vídeos sobre a Maré (conhecendo sobre o vasto território Mareense,
+                        construído a partir de 16
+                        comunidades ou favelas).</td>
+                </tr>
+                <tr>
+                    <td>Passo 2:</td>
+                    <td style="text-align: justify;">Roda de conversa (conversando sobre os lugares onde os (as) alunos
+                        (as) moram, quais
+                        características, lugares que têm maior convivência, lugares que não são legais de frequentar,
+                        memórias felizes sobre o lugar e memórias tristes sobre o mesmo).</td>
+                </tr>
+                <tr>
+                    <td>Passo 3:</td>
+                    <td style="text-align: justify;">Construindo maquetes (propor a construção de maquetes que
+                        materializem o lugar onde eles vivem,
+                        indicando cada ponto formativo do mesmo, suas características físicas e, principalmente, o lar).
+                    </td>
+                </tr>
+                <tr>
+                    <td>Passo 4:</td>
+                    <td style="text-align: justify;">Apresentando seus territórios (a partir das maquetes construídas
+                        individualmente, os (as) alunos
+                        (as) farão uma exposição das mesmas em sala de aula e, entre eles, irão mostrar aos colegas de
+                        classe o que foi construído, onde mora, o que gosta de fazer onde mora e o que gostaria que
+                        mudasse no local).</td>
+                </tr>
+                <tr>
+                    <td>Passo 5:</td>
+                    <td style="text-align: justify;">Conhecendo a cartografia (mostrar para os (as) alunos (as) como os
+                        lugares são organizados em
+                        uma cartografia, como é construída e explicar que a cartografia é construída a partir dos olhos
+                        de quem vê).</td>
+                </tr>
+                <tr>
+                    <td>Passo 6:</td>
+                    <td style="text-align: justify;">Mapeamento Educativo (a partir do estudo sobre a cartografia, será
+                        colocada a construção da
+                        cartografia social como uma forma de intervenção da própria população local, em detrimento dos
+                        seus conhecimentos intrínsecos sobre o território que será cartografado).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="content">
+            Importante: A cartografia social permite às comunidades desenharem mapas dos territórios que ocupam. Os
+            mapas sociais são construídos de forma participativa e apresentam o cotidiano de uma comunidade em linguagem
+            simples e acessível. Esses mapas são criados com o objetivo de serem instrumentos de defesa dos direitos de
+            populações específicas. A cartografia social se distingue por seu caráter colaborativo e emancipatório, pois
+            é amplamente utilizada para ampliar a visibilidade de problemas sociais e culturais vividos por comunidades,
+            muitas vezes marginalizadas ou ignoradas pelos métodos de mapeamento convencionais. Na pesquisa construída
+            aqui sobre a Maré, iremos desenvolver a cartografia social afetiva, tendo o Mapeamento Educativo como
+            produto final do trabalho desenvolvido. A pesquisa ocorre de modo qualitativo e interpretativista crítico,
+            utilizando como ferramenta a cartografia social afetiva, muito importante para a gestão de políticas
+            públicas e essencial para a avaliação da realidade social, os processos de mudança e as condições de vida
+            das pessoas. Esse modo de mapeamento ajuda a identificar os problemas e necessidades de um determinado
+            território, a partir da observação da realidade. Dessa maneira, o mapeamento educativo visa registrar tudo o
+            que compõe uma região, bairro ou cidade, podendo ser utilizado em escolas, órgãos públicos ou movimentos
+            sociais. O mapeamento educativo pode ser dividido em três pontos: planejamento, execução e sistematização.
+        </div>
+
+        <a href="Galeria/Livro Ebook Autoral - Mayara Barbosa.pdf" class="ebook-btn" target="_blank">
+            Baixar o eBook
+        </a>
+
+        <style>
+            .ebook-btn {
+                display: inline-block;
+                background-color: #00B4BF;
+                /* Cor azul-água (tom da galeria) */
+                color: #fff;
+                padding: 12px 30px;
+                font-size: 16px;
+                font-weight: bold;
+                text-decoration: none;
+                border-radius: 30px;
+                /* Bordas bem arredondadas */
+                text-align: center;
+                margin-top: 30px;
+                /* Espaço no topo */
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+
+            .ebook-btn:hover {
+                background-color: #009fa5;
+                /* Tom mais escuro de azul-água no hover */
+                transform: scale(1.05);
+                /* Efeito de aumentar o botão */
+            }
+
+            .ebook-btn:active {
+                background-color: #007f85;
+                /* Cor mais escura no clique */
+            }
+
+            /* Centraliza o botão */
+            .container {
+                text-align: center;
+                /* Centraliza todo o conteúdo dentro da .container */
+            }
+        </style>
+
+    </div>
+
+    <button class="button" onclick="showGallery()">GALERIA: RESSIGNIFICANDO A MARÉ</button>
+
+
+    <!-- Vídeo de destaque -->
+    <div class="video-item" id="gallery-video" style="display: none;">
+        <video controls>
+            <source src="Galeria/video.MOV" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Imagens da galeria (inicialmente ocultas) -->
+    <div class="gallery-grid" id="gallery-images">
+        <img src="Galeria/IMG_0927.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0928.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0929.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0930.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0931.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0932.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0933.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0934.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0936.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0937.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0938.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0939.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0940.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0941.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0942.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0943.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0944.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0945.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0965.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0962.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0947.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0948.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0963.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0964.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0960.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0949.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0954.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0955.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0956.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0957.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0958.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0959.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0961.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0800_Original.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0909_Original.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0966.jpg" class="gallery-item">
+        <img src="Galeria/IMG_0911_Original.jpg" class="gallery-item">
+        <img src="Galeria/IMG_3661_Original.jpg" class="gallery-item">
+        <img src="Galeria/Jornal Maré de Notícias.jpg" class="gallery-item">
+        <img src="Galeria/Nosso espaço de ser.jpeg" class="gallery-item">
+        <img src="Galeria/Mensagem para mim.jpeg" class="gallery-item">
+        <img src="Galeria/Carolina no Canindé e nós na Maré.jpg" class="gallery-item">
+        <img src="Galeria/A Maré e sua diversidade social.jpg" class="gallery-item">
+        <img src="Galeria/Nosso lugar .jpeg" class="gallery-item">
+        <img src="Galeria/IMG_1652.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1662.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1663.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1666.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1671.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1673.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1674.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1675.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1681.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1686.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1757.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1758.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1759.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1847.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1849.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1850.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1851.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1852.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1853.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1854.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1855.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1873.jpg" class="gallery-item">
+        <img src="Galeria/IMG_1949.jpg" class="gallery-item">
+    </div>
+    </div>
+    </div>
+
+    <!-- Modal de Imagem -->
+    <div id="image-modal" class="modal" style="display: none;">
+        <span id="close-modal" class="close-btn">&times;</span>
+        <img id="modal-img" src="" alt="Imagem ampliada" class="modal-content">
+    </div>
+
+    <br><br><br><br>
+    </div>
+
+    <footer>
+        &copy; 2025 Mayara Barbosa. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        function showGallery() {
+            var video = document.getElementById("gallery-video");
+            var images = document.getElementById("gallery-images");
+
+            // Verifica se já está visível
+            if (video.style.display === "none" || video.style.display === "") {
+                video.style.display = "block";
+                images.style.display = "grid"; // Mostra as imagens no formato grid
+            } else {
+                video.style.display = "none";
+                images.style.display = "none";
+            }
+        }
+
+        var modal = document.getElementById("image-modal");
+        var closeBtn = document.getElementById("close-modal");
+        var galleryItems = document.querySelectorAll(".gallery-item");
+
+        // Abrir o modal com a imagem ampliada
+        galleryItems.forEach(function (item) {
+            item.addEventListener("click", function () {
+                var src = item.getAttribute("src");
+                var modalImg = document.getElementById("modal-img");
+                modalImg.src = src;
+                modal.style.display = "flex";
+            });
+        });
+
+        // Fechar o modal ao clicar no "X"
+        closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        // Fechar o modal ao clicar fora da imagem
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>
