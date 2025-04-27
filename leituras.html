@@ -185,16 +185,23 @@
             right: 0;
         }
 
-        @media screen and (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
-                /* 2 itens por linha em telas menores */
-            }
+    @media screen and (max-width: 768px) {
+        .container {
+            padding: 15px;
         }
+
+        .gallery {
+            grid-template-columns: repeat(2, 1fr);
+            /* 2 itens por linha em telas menores */
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .gallery {
+            grid-template-columns: 1fr;
+            /* 1 item por linha em telas bem pequenas */
+        }
+    }    
     </style>
 </head>
 
